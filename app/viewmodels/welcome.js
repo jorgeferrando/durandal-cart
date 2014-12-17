@@ -15,6 +15,22 @@
             'Integrates with other libraries such as SammyJS & Bootstrap',
             'Make jQuery & Bootstrap widgets templatable and bindable (or build your own widgets).'
         ];
+
+        this.doClick = function (item) {
+            app.showMessage('Dropdown clicked!');
+        }
+
+        this.dropdowndata = {
+
+            text:"Dropdown button",
+            items: [
+                {
+                    text: "Item afds",
+                    click:'doClick()'
+                },
+            ]
+
+        }
     };
 
     //Note: This module exports a function. That means that you, the developer, can create multiple instances.

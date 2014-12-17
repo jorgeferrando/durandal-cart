@@ -25,7 +25,10 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
 
     app.configurePlugins({
         router:true,
-        dialog: true
+        dialog: true,
+        widget: {
+            kinds:['dropdown']
+        }
     });
 
     app.start().then(function() {

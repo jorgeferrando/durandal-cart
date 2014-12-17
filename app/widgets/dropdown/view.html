@@ -1,0 +1,12 @@
+<div class="dropdown">
+    <button data-bind=”attr:{id:settings.id}” type="button" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+        <span data-bind=”text: settings.text”></span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu"
+        data-bind=”attr:{'aria-labelledby':settings.id},foreach:{data:settings.items}">
+    <li role="presentation">
+        <a role="menuitem" tabindex="-1" data-bind=$data></a>
+    </li>
+    </ul>
+</div>
