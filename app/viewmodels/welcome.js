@@ -1,5 +1,6 @@
 ﻿define(function() {
     var ctor = function () {
+        var self=this;
         this.displayName = 'Welcome to the Durandal Starter Kit!';
         this.description = 'Durandal is a cross-device, cross-platform client framework written in JavaScript and designed to make Single Page Applications (SPAs) easy to create and maintain.';
         this.features = [
@@ -20,17 +21,11 @@
             app.showMessage('Dropdown clicked!');
         }
 
-        this.dropdowndata = {
-
-            text:"Dropdown button",
-            items: [
-                {
-                    text: "Item afds",
-                    click:'doClick()'
-                },
-            ]
-
-        }
+        this.projects=[
+            {name:"Project1",number:3},
+            {name:"Project2",number:2},
+            {name:"Project3",number:1}
+        ]
     };
 
     //Note: This module exports a function. That means that you, the developer, can create multiple instances.
