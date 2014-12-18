@@ -22,9 +22,9 @@
         }
 
         this.projects=[
-            {name:"Project1",number:3},
-            {name:"Project2",number:2},
-            {name:"Project3",number:1}
+            { name:"Project1",number:3},
+            { name:"Project2",number:2},
+            { name:"Project3",number:1}
         ]
     };
 
