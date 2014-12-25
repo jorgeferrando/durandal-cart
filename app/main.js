@@ -6,13 +6,26 @@
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-3.1.0',
         'bootstrap': '../lib/bootstrap/js/bootstrap.min',
-        'jquery': '../lib/jquery/jquery-1.9.1'
+        'jquery': '../lib/jquery/jquery-1.9.1',
+        'toastr': '../lib/toastr/toastr.min',
+        'ko.validation': '../lib/kovalidation/ko.validation',
+        'mockjax': '../lib/mockjax/jquery.mockjax',
+        'mockjson': '../lib/mockjson/jquery.mockjson'
     },
     shim: {
         'bootstrap': {
             deps: ['jquery'],
             exports: 'jQuery'
-       }
+        },
+        mockjax: {
+            deps:['jquery']
+        },
+        mockjson: {
+            deps:['jquery']
+        },
+        'ko.validation':{
+            deps:['knockout']
+        }
     }
 });
 

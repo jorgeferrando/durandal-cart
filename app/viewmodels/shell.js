@@ -8,9 +8,7 @@
         },
         activate: function () {
             router.map([
-                { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
-                { route: 'flickr', moduleId: 'viewmodels/flickr', nav: true },
-                { route: 'accordion', moduleId: 'viewmodels/accordion', nav: true }
+                { route: '', title:'Login', moduleId: 'viewmodels/login', nav: true },
             ]).buildNavigationModel();
 
             return router.activate();
