@@ -1,4 +1,8 @@
-﻿define(['plugins/router', 'durandal/app'], function (router, app) {
+﻿define([
+    'plugins/router',
+    'durandal/app',
+    'bindings'
+], function (router, app, bindings) {
     return {
         router: router,
         search: function() {
@@ -7,8 +11,13 @@
             app.showMessage('Search not yet implemented...');
         },
         activate: function () {
+            bindings.init();
             router.map([
-                { route: '', title:'Login', moduleId: 'viewmodels/login', nav: true },
+                { route: ['','/','catalog'], title:'Catalog', moduleId: 'viewmodels/catalog', nav: true },
+                { route: 'new', title:'New product', moduleId: 'viewmodels/new', nav: true },
+                { route: 'edit/:id', title:'Edit product', moduleId: 'viewmodels/edit', nav: false },
+                { route: 'cart', title:'Cart', moduleId: 'viewmodels/cart', nav: false },
+                { route: 'order', title:'Order', moduleId: 'viewmodels/order', nav: true }
             ]).buildNavigationModel();
 
             return router.activate();

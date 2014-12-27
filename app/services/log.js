@@ -2,24 +2,32 @@ define(["toastr"],function(toastr){
 
     toastr.options.positionClass = 'toast-bottom-right';
 
-    var error = function(title,text) {
+    var error = function(text,title,log) {
         toastr.error(title,text);
-        console.error(text);
+        if (log) {
+            console.error(title,text);
+        }
     };
 
-    var success = function(title,text) {
+    var success = function(text,title,log) {
         toastr.success(title,text);
-        console.log(text || title);
+        if (log) {
+            console.log(title,text);
+        }
     };
 
-    var warning = function(title,text) {
+    var warning = function(text,title,log) {
         toastr.warning(title,text);
-        console.warn(text || title);
+        if (log) {
+            console.warn(title,text);
+        }
     };
 
-    var info = function(title,text) {
+    var info = function(text,title,log) {
         toastr.info(atitle,text);
-        console.info(text || title);
+        if (log) {
+            console.info(title,text);
+        }
     };
 
     return {

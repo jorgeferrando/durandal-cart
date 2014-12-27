@@ -4,13 +4,14 @@
         'durandal':'../lib/durandal/js',
         'plugins' : '../lib/durandal/js/plugins',
         'transitions' : '../lib/durandal/js/transitions',
-        'knockout': '../lib/knockout/knockout-3.1.0',
+        'knockout': '../lib/knockout/knockout-3.1.0.debug',
         'bootstrap': '../lib/bootstrap/js/bootstrap.min',
         'jquery': '../lib/jquery/jquery-1.9.1',
         'toastr': '../lib/toastr/toastr.min',
         'ko.validation': '../lib/kovalidation/ko.validation',
         'mockjax': '../lib/mockjax/jquery.mockjax',
-        'mockjson': '../lib/mockjson/jquery.mockjson'
+        'mockjson': '../lib/mockjson/jquery.mockjson',
+        'icheck': '../lib/icheck/icheck'
     },
     shim: {
         'bootstrap': {
@@ -25,23 +26,31 @@
         },
         'ko.validation':{
             deps:['knockout']
+        },
+        'icheck': {
+            deps: ['jquery']
         }
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator','bootstrap'],  function (system, app, viewLocator) {
+define([
+    'durandal/system',
+    'durandal/app',
+    'durandal/viewLocator',
+    'mocks',
+    'bootstrap',
+    'ko.validation',
+    'icheck',
+],  function (system, app, viewLocator,mocks) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Durandal Starter Kit';
+    app.title = 'Durandal Shop';
 
     app.configurePlugins({
         router:true,
-        dialog: true,
-        widget: {
-            kinds:['expander']
-        }
+        dialog: true
     });
 
     app.start().then(function() {
@@ -51,5 +60,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator','bootstrap'], 
 
         //Show the app by setting the root view model for our application with a transition.
         app.setRoot('viewmodels/shell', 'entrance');
+
+        mocks();
     });
 });
