@@ -77,17 +77,7 @@ define([
             }
         }
         service.cart(newCart);
-    }
-
-    app.on("cart:add").then(function(data){
-        service.add(data);
-    });
-    app.on("cart:subtract").then(function(data){
-        service.subtract(data);
-    });
-    app.on("cart:remove").then(function(data){
-        service.remove(data);
-    });
+    };
 
     return service;
 });

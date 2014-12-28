@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Units</th>
+        <th>Subtotal</th>
+    </tr>
+    </thead>
+    <tbody data-bind="foreach:cart">
+    <tr>
+        <td data-bind="text:product.name">
+        </td>
+        <td data-bind="currency:product.price" class="text-right">
+        </td>
+        <td data-bind="text:units">
+        </td>
+        <td data-bind="currency:subtotal" class="text-right">
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3"></td>
+        <td class="text-right">
+            Total:<span data-bind="currency:grandTotal"></span>
+        </td>
+    </tr>
+    </tfoot>
+</table>

@@ -38,10 +38,12 @@ define([
     'durandal/app',
     'durandal/viewLocator',
     'mocks',
+    'bindings',
+    'components',
     'bootstrap',
     'ko.validation',
     'icheck',
-],  function (system, app, viewLocator,mocks) {
+],  function (system, app, viewLocator,mocks,bindings,components) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
@@ -62,5 +64,7 @@ define([
         app.setRoot('viewmodels/shell', 'entrance');
 
         mocks();
+        bindings.init();
+        components.init();
     });
 });

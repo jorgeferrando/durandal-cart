@@ -11,7 +11,7 @@
             app.showMessage('Search not yet implemented...');
         },
         activate: function () {
-            bindings.init();
+
             router.map([
                 { route: ['','/','catalog'], title:'Catalog', moduleId: 'viewmodels/catalog', nav: true },
                 { route: 'new', title:'New product', moduleId: 'viewmodels/new', nav: true },

@@ -63,7 +63,7 @@ define([
             });
     }
     vm.refresh = function () {
-        ProductService.all().then(function(response){
+        return ProductService.all().then(function(response){
             vm.catalog([]);
             response.data.forEach(function(item){
                 vm.catalog.push(new Product(item.id,item.name,item.price,item.stock));
@@ -77,12 +77,13 @@ define([
     }
     vm.activate = function() {
         if(vm.catalog().length === 0) {
-            vm.refresh();
             app.on("catalog:refresh").then(function(){
                 vm.refresh();
-            })
+            });
+            return vm.refresh();
+        } else {
+            return true;
         }
-        return true;
     }
     return vm;
 });

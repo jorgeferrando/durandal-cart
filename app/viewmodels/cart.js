@@ -7,31 +7,19 @@ define([
     vm.cart = CartService.cart;
 
     vm.addUnit = function(data){
-        app.trigger("cart:add",data.product);
+        CartService.add(data.product);
     };
     vm.removeUnit = function(data) {
         if (data.units() === 1) {
-            app
-                .showMessage(
-                'Are you sure you want to delete this item?',
-                'Delete Item',
-                ['Yes', 'No']
-            ).then(function(answer){
-                    if(answer === "Yes") {
-                        app.trigger('cart:remove',data.product);
-                        Logger.success("Product removed");
-                    } else {
-                        Logger.success("Deletion canceled");
-                    }
-                });
+            remove(data);
         } else {
-            app.trigger("cart:subtract",data.product);
+            CartService.subtract(data);
         }
 
     };
 
     vm.removeProduct = function(data) {
-        app.trigger('cart:remove',data.product);
+        remove(data);
     };
 
     vm.toOrder = function() {
@@ -42,10 +30,28 @@ define([
         var result = (vm.cart().length > 0);
 
         if(!result) {
-            Logger.error("Select some products before","Cart is empty")
+            Logger.error("Select some products before","Cart is empty");
+            return {redirect:'#/catalog'};
         }
 
         return result;
+    }
+
+    function remove(data) {
+        app
+            .showMessage(
+            'Are you sure you want to delete this item?',
+            'Delete Item',
+            ['Yes', 'No']
+        ).then(function(answer){
+                if(answer === "Yes") {
+                    CartService.remove(data.product);
+                    //app.trigger('cart:remove',data.product);
+                    Logger.success("Product removed");
+                } else {
+                    Logger.success("Deletion canceled");
+                }
+            });
     }
 
     return vm;

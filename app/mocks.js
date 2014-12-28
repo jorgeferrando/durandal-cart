@@ -5,6 +5,8 @@ define([
         'T-SHIRT', 'SHIRT', 'TROUSERS', 'JEANS', 'SHORTS', 'GLOVES', 'TIE'
     ];
 
+    var lastId = 101;
+
     var catalog = $.mockJSON.generateFromTemplate({
         "data|5-5": [{
             "id|1-100": 0,
@@ -55,6 +57,8 @@ define([
             dataType: "json",
             responseTime: 750,
             response: function(settings){
+                settings.data.id = lastId;
+                lastId++;
                 catalog.data.push(settings.data);
                 this.responseText = {
                     "data": {

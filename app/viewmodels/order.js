@@ -28,10 +28,10 @@ define([
         var result = (vm.cart().length > 0);
 
         if(!result) {
-            Logger.error("Select some products before","Cart is empty")
+            Logger.error("Select some products before","Cart is empty");
         }
 
-        return result;
+        return {redirect:'#/catalog'};
     }
 
     return vm;

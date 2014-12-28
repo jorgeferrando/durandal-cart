@@ -15,7 +15,12 @@ define([
     vm.activate = function(id) {
         return ProductService.get(id).then(function(response){
             var p = response.data;
-            vm.product = new Product(p.id, p.name, p.price, p.stock);
+            if (p) {
+                vm.product = new Product(p.id, p.name, p.price, p.stock);
+            } else {
+                Logger.error("We didn't find product with id:"+id)
+                router.navigate('#/catalog');
+            }
         });
     };
 
