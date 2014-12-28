@@ -29,9 +29,9 @@ define([
 
         if(!result) {
             Logger.error("Select some products before","Cart is empty");
+            return {redirect:'#/catalog'};
         }
-
-        return {redirect:'#/catalog'};
+        return true;
     }
 
     return vm;

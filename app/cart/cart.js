@@ -1,5 +1,5 @@
 define([
-    'durandal/app','plugins/router','services/log',"services/cart"
+    'durandal/app','plugins/router','../services/log',"services/cart"
 ],function(app, router, Logger, CartService){
 
     var vm={};
